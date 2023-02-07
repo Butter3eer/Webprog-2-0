@@ -9,12 +9,18 @@
 <body>
     <p>Random szám generátor, a dobozba írja be a tippet, és a gombra kattintva megtudhatja, hogy talált-e! (1-100)</p>
     <input type="textarea" id="bevitel">
-    <button onclick = "randomGen()" id="eredmeny">Elküld</button>
-    <button onclick = "ujra()" id="ujra">Újrapróbál</button>
+    <button onclick = "ellenoriz()" id="eredmeny">Elküld</button>
+    <button onclick = "randomGen()" id="ujra">Új szám</button>
 
     <script>
+        var rand;
+
         function randomGen() {
-            var rand = Math.floor(Math.random() * 100) + 1;
+            rand = Math.floor(Math.random() * 100) + 1;
+        }
+
+        function ellenoriz() {
+        
             var tipp = parseFloat(document.getElementById("bevitel").value)
 
             if (tipp == rand)
@@ -25,22 +31,19 @@
             {
                 if (tipp > rand)
                 {
-                    var nagy = "A tippelt szám nagyobb volt."
+                    var nagy = "A gondolt szám kisebb."
                 }
 
                 if (tipp < rand)
                 {
-                    nagy = "A tippelt szám kisebb volt."
+                    nagy = "A gondolt szám nagyobb."
                 }
                 
-                window.alert(nagy + "\nPróbálja újra az 'újrapróbálás' gombbal");
-                return False;
+                window.alert(nagy + "\nPróbálja újra a 'Elküld' gombbal");
             }
         }
 
-        function ujra() {
-            location.reload();
-        }
+        randomGen();
     </script>
 </body>
 </html>
