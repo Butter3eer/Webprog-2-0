@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Random szám generátor, a dobozba írja be a tippet, és a gombra kattintva megtudhatja, hogy talált-e! (1-100)</p>
+    <input type="textarea" id="bevitel">
+    <button onclick = "randomGen()" id="eredmeny">Elküld</button>
+    <button onclick = "ujra()" id="ujra">Újrapróbál</button>
+
+    <script>
+        function randomGen() {
+            var rand = Math.floor(Math.random() * 100) + 1;
+            var tipp = parseFloat(document.getElementById("bevitel").value)
+
+            if (tipp == rand)
+            {
+                window.alert("Eltalálta!");
+            }
+            else 
+            {
+                if (tipp > rand)
+                {
+                    var nagy = "A tippelt szám nagyobb volt."
+                }
+
+                if (tipp < rand)
+                {
+                    nagy = "A tippelt szám kisebb volt."
+                }
+                
+                window.alert(nagy + "\nPróbálja újra az 'újrapróbálás' gombbal");
+                return False;
+            }
+        }
+
+        function ujra() {
+            location.reload();
+        }
+    </script>
+</body>
+</html>
