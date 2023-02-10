@@ -11,7 +11,29 @@
     <input type="textarea" id="b">
     <input type="textarea" id="c">
 
+    <button onclick = "terulet()" id="teruletGomb">Terület</button>
+    <button onclick = "kerulet()" id="keruletGomb">Kerület</button>
+
     <p id="terulet"></p>
     <p id="kerulet"></p>
+
+    <script>
+        var a = parseFloat(document.getElementById("a").value);
+        var b = parseFloat(document.getElementById("b").value);
+        var c = parseFloat(document.getElementById("c").value);
+
+        function terulet() {
+            var s = (a + b + c) / 2.0;
+            var terulet = Math.sqrt(s * (s - a) * (s - b) * (s - c));
+
+            var teruletFel = document.getElementById("terulet").innerHTML = "A háromszög Területe: " + terulet;
+        }
+
+        function kerulet() {
+            var kerulet = a + b + c;
+
+            var keruletFel = document.getElementById("kerulet").innerHTML = "A háromszög Kerülete: " + kerulet;
+        }
+    </script>
 </body>
 </html>
